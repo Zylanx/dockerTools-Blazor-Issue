@@ -4,6 +4,14 @@ There are multiple issues here that I can't work out:
 - I can't work out how to make it so that .NET can create/access
   a .aspnet folder for its Data Protection Key management.
 
+# Solution
+To the first issue, Blazor doesn't handle symbolic links correctly and just ignores them.  
+Solution: Set the working dir to the nix store path's /lib folder for the app.  
+This is demonstrated in solved.nix.
+
+To the second issue, Blazor has weird issues when a /tmp folder doesn't exist.
+Solution: Just create a /tmp directory. It works fine then.
+
 # Steps to Demonstrate/Reproduce
 First clone this repo:
 ```

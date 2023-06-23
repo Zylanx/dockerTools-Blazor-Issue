@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.DataProtection;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDataProtection().UseEphemeralDataProtectionProvider();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
