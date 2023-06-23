@@ -5,11 +5,11 @@ There are multiple issues here that I can't work out:
   a .aspnet folder for its Data Protection Key management.
 
 # Solution
-To the first issue, Blazor doesn't handle symbolic links correctly and just ignores them.  
+To the first issue, Blazor doesn't resolve symbolic links in wwwroot and just sends them as is.  
 Solution: Set the working dir to the nix store path's /lib folder for the app.  
 This is demonstrated in solved.nix.
 
-To the second issue, Blazor has weird issues when a /tmp folder doesn't exist.
+To the second issue, Blazor has weird error messages when a /tmp folder doesn't exist.
 Solution: Just create a /tmp directory. It works fine then.
 
 # Steps to Demonstrate/Reproduce
