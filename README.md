@@ -18,12 +18,16 @@ First clone this repo:
 git clone https://github.com/Zylanx/dockerTools-Blazor-Issue.git
 ```
 
-Then build default.nix and run the docker container
+Then build default.nix or Dockerfile.broken and run the docker container
 ```
-$(nix-build) | docker load && docker run -it --rm -p 8080:80 blazortest:latest
+docker build -t blazortest -f Dockerfile.broken . && docker run -it --rm -p 80:80 blazortest:latest
+```
+or  
+```
+$(nix-build) | docker load && docker run -it --rm -p 80:80 blazortest:latest
 ```
 
-Then go to http://localhost:8080.  
+Then go to http://localhost.  
 You will notice that the CSS has not loaded correctly.
 
 # Expected Result
@@ -38,6 +42,6 @@ Then go to http://localhost:80 and notice how it looks correct
 
 ### Docker
 ```
-docker build -t blazortest . && docker run -it --rm -p 8080:80 blazortest:latest
+docker build -t blazortest -f Dockerfile.working . && docker run -it --rm -p 8080:80 blazortest:latest
 ```
 Then go to http://localhost:8080 and notice how the website looks correct
